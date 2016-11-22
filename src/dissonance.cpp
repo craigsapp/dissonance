@@ -23,33 +23,17 @@ namespace hum {
 //
 
 dissonance_interface::dissonance_interface(void){
-	// Options& options = m_options;
-	// options.define("k|kern=b","display corresponding **kern data");
+	Options& options = m_options;
+	options.define("a|append=b","append analysis to input data");
+	options.define("p|prepend=b","prepend analysis to input data");
 }
 
 
 
 //////////////////////////////
 //
-// dissonance_interface::convert -- Convert a MusicXML file into
-//     Humdrum content.
+// dissonance_interface::setOptions -- Receive command-line options to the class.
 //
-
-bool dissonance_interface::process(ostream& out, HumdrumFile& infile) {
-	return true;
-}
-
-
-
-//////////////////////////////
-//
-// dissonance_interface::setOptions --
-//
-
-void dissonance_interface::setOptions(int argc, char** argv) {
-	m_options.process(argc, argv);
-}
-
 
 void dissonance_interface::setOptions(const vector<string>& argvlist) {
 	int tempargc = (int)argvlist.size();
@@ -75,6 +59,17 @@ void dissonance_interface::setOptions(const vector<string>& argvlist) {
 
 //////////////////////////////
 //
+// dissonance_interface::setOptions --
+//
+
+void dissonance_interface::setOptions(int argc, char** argv) {
+	m_options.process(argc, argv);
+}
+
+
+
+//////////////////////////////
+//
 // dissonance_interface::getOptionDefinitions -- Used to avoid
 //     duplicating the definitions in the test main() function.
 //
@@ -84,6 +79,20 @@ Options dissonance_interface::getOptionDefinitions(void) {
 }
 
 
+
+//////////////////////////////
+//
+// dissonance_interface::process -- Returns true if the HumdrumFile should be
+//     printed to standard output after calling this function.
+//
+
+bool dissonance_interface::process(HumdrumFile& infile) {
+
+
+	return true;
+}
+
+
+
+
 } // end namespace hum
-
-

@@ -18,8 +18,8 @@ using namespace std;
 using namespace hum;
 
 int main(int argc, char** argv) {
-	hum::dissonance_interface tool;
-	hum::Options options = tool.getOptionDefinitions();
+	hum::dissonance_interface interface;
+	hum::Options options = interface.getOptionDefinitions();
 	options.process(argc, argv);
 
 	HumdrumFile infile;
@@ -32,13 +32,15 @@ int main(int argc, char** argv) {
 		infile.read(filename.c_str());
 	}
 
-	tool.setOptions(argc, argv);
-	stringstream out;
-	bool status = tool.process(out, infile);
+cerr << "GOT HERE AAA" << endl;
+	interface.setOptions(argc, argv);
+cerr << "GOT HERE BBB" << endl;
+	bool status = interface.process(infile);
+cerr << "GOT HERE CCC" << endl;
 	if (!status) {
-		cerr << "Error processing file: " << filename << endl;
+		cout << infile;
 	}
-	cout << out.str();
+cerr << "GOT HERE DDD" << endl;
 
 	return 0;
 }

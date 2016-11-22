@@ -29,7 +29,7 @@ class dissonance_interface {
 		void    setOptions           (const vector<string>& argvlist);
 		Options getOptionDefinitions (void);
 
-		bool    process              (ostream& out, HumdrumFile& infile);
+		bool    process              (HumdrumFile& infile);
 
 	protected:
 
