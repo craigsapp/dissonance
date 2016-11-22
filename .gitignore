@@ -1,0 +1,7 @@
+obj
+*.o
+*.zip
+external
+tests
+bin
+.DS_Store
